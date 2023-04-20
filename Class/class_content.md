@@ -148,3 +148,14 @@
 ## APIOps
 
 - Aula 10: APIOps
+    - É um conceito que aplica os solidos e testados principios de DevOps e GitOps para o ciclo de vida das APIs e microsserviços.
+    ![kong-kubernetes-7](img/kong-kubernetes-7.png)
+    ![kong-kubernetes-8](img/kong-kubernetes-8.png)
+    ![kong-kubernetes-9](img/kong-kubernetes-9.png)
+
+- Aula 11: GitOps
+    - É uma prática que usa infraestrutura como código, que implica que um determinado ambiente (dev, homologação, prod) esteja criado em uma maneira declarativa através de manifestos, e que através de automação seja possível recriar o ambiente de maneira repetitiva.
+    Os manifestos devem estar armazenados dentro de um repositório git.
+    ![kong-kubernetes-10](img/kong-kubernetes-10.png)
+
+
