@@ -88,3 +88,63 @@
     ```
     kubectl apply -f .\apps\ --recursive -n bets
     ```
+
+## Kong & Kubernetes
+
+- Aula 6: Crd plugins
+    - Kong Custom Resource Definitions <https://docs.konghq.com/kubernetes-ingress-controller/latest/concepts/custom-resources/>
+    - Criado os primeiros manifestos:
+    ```
+    kubectl apply -f .\krate-limit.yaml -n bets
+    ```
+    ```
+    kubectl apply -f .\kprometheus.yaml
+    ```
+
+- Aula 7: Kong ingress
+    - Kong ingress
+    - Criado mais alguns manifestos
+    ```
+    kubectl apply -f .\bets-api.yaml -n bets
+    ```
+    ```
+    kubectl apply -f .\kingress.yaml -n bets
+    ```
+
+- Aula 8: Open id provider
+    - Kong + OpenID Connect
+    ```
+    kubectl port-forward svc/keycloak 8080:80 -n iam
+    ```
+    - Criando usuários, realm e client pelo Keycloak
+    ```
+    kubectl port-forward svc/keycloak 8080:80 -n iam
+    ```
+    ```
+    http://localhost:8080
+    ```
+
+- Aula 9: Kong openid plugin
+    ```
+    kubectl apply -f .\kopenid.yaml -n bets
+    ```
+    ```
+    kubectl apply -f .\pod.yaml
+    ```
+    ```
+    kubectl exec -it testcurl -- sh
+    ```
+    ```
+    curl --location --request POST 'http://keycloak.iam/realms/bets/protocol/openid-connect/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'client_id=kong' \
+    --data-urlencode 'grant_type=password' \
+    --data-urlencode 'username=maria' \
+    --data-urlencode 'password=maria' \
+    --data-urlencode 'client_secret=DounaAGzGKoWNkx70DqAYF8szsGOadhM' \
+    --data-urlencode 'scope=openid'
+    ```
+
+## APIOps
+
+- Aula 10: APIOps
