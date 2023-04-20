@@ -158,4 +158,16 @@
     Os manifestos devem estar armazenados dentro de um repositório git.
     ![kong-kubernetes-10](img/kong-kubernetes-10.png)
 
+- Aula 12: Ferramentas necessárias
+    - Github Actions
+    - Spectral <https://stoplight.io/open-source/spectral>
+    - Postman <https://learning.postman.com/docs/writing-scripts/test-scripts/>
+    - ArgoCD <https://argoproj.github.io/cd/>
 
+- Aula 13: Validando openapi lint
+    - Criando arquivos de contrato (arquivos encontravam-se dentro do repositório pessoal do Claudio <https://github.com/claudioed/bets-app>)
+
+- Aula 14: Checando contratos
+    - Mostrou na prática na checagem dos contratos
+
+- Aula 15: Instalando ArgoCD
