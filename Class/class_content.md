@@ -171,3 +171,67 @@
     - Mostrou na prática na checagem dos contratos
 
 - Aula 15: Instalando ArgoCD
+    - Link para documentação do ArgoCD <https://argo-cd.readthedocs.io/en/stable/getting_started/>
+    ```
+    kubectl create namespace argocd     
+    ```
+    ```
+    kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    ```
+    ```
+    kubectl get po -n argocd
+    ```
+    ```
+    kubectl port-forward svc/argocd-server -n argocd 8080:443
+    ```
+    ```
+    kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+    ```
+
+- Aula 16: Rodando Pipeline
+    - Fiz o fork dos repositórios e os manifestos se encontram dentro de "Code/argo-apps"
+    ```
+    kubectl apply -f .\players.yaml -n argocd
+    ```
+    ```
+    kubectl apply -f .\matches.yaml -n argocd
+    ```
+    ```
+    kubectl apply -f .\championships.yaml -n argocd
+    ```
+    ```
+    kubectl apply -f .\bets.yaml -n argocd
+    ```
+
+- Aula 17: K6 testkube
+    - Iniciando com Load Tests <https://k6.io/>
+    - Instalando testkube <https://testkube.io/download>
+    - Instalação via chocolatey (Não consegui avançar via chocolatey)
+    ```
+    choco source add --name=testkube_repo --source=http://chocolatey.testkube.io/chocolatey
+    ```
+    ```
+    choco install testkube
+    ```
+    - Instalando testkube via helm
+    ```
+    helm repo add kubeshop https://kubeshop.github.io/helm-charts
+    ```
+    ```
+    helm install --create-namespace my-testkube kubeshop/testkube
+    ```
+    ```
+    kubectl get po
+    ```
+
+- Aula 18: Preparando o Cluster
+    - Instalando metrics servers. Verificar instalação do metrics server com opção de "TLS false"
+    ```
+    helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
+    ```
+    ```
+    helm upgrade --install metrics-server metrics-server/metrics-server --namespace kube-system
+    ```
+    
+- Aula 19: 
+    - 
