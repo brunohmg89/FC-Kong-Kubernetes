@@ -232,6 +232,38 @@
     ```
     helm upgrade --install metrics-server metrics-server/metrics-server --namespace kube-system
     ```
+    - Aplicando manifestos de HPA
+    ```
+    kubectl apply -f .\hpa\ --recursive -n bets
+    ```
+    ```
+    helm list -A
+    ```
+    ```
+    helm delete prometheus-stack -n monitoring
+    ```
+    ```
+    helm install prometheus-stack prometheus-community/kube-prometheus-stack -f prometheus.yaml --namespace monitoring
+    ```
+    ```
+    kubectl apply -f .\hpa\ --recursive -n bets
+    ```
+
+- Aula 19: Aplicando cargas
+    - Acessando o grafana (admin - prom-operator) (dashboard do Kong - importar por código 7424)
+    ```
+    kubectl get svc -n monitoring
+    ```
+    ```
+    kubectl port-forward svc/prometheus-stack-grafana -n argocd 3000:80 -n monitoring
+    ```
+    - Criando teste de carga
+    ```
+    kubectl testkube create test --file .\Code\load\create_bet_load.js --type k6/script --name create-bet-load
+    ```
+    ```
+    kubectl testkube run test create-bet-load -f
+    ```
     
-- Aula 19: 
-    - 
+
+
