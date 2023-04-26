@@ -264,6 +264,45 @@
     ```
     kubectl testkube run test create-bet-load -f
     ```
-    
+
+## Kong em ambientes produtivos
+
+- Aula 20: Configurando apps logs
+    - Instalando conjunto de ferramentas EFK (Elastic - FluentD - Kibana)
+    ```
+    kubectl create namespace logs
+    ```
+    ```
+    helm repo add elastic https://helm.elastic.co
+    ```
+    ```
+    helm install elasticsearch elastic/elasticsearch --version=7.17.1 -n logs -f elastic-values.yaml
+    ```
+    - Dando erro na instalação do elastic (Pesquisar)
+    ```
+    helm install --replace elasticsearch elastic/elasticsearch --version=8.5.1 -n logs -f elastic-values.yaml
+    ```
+    ```
+    helm repo add fluent https://fluent.github.io/helm-charts
+    ```
+    - Dando erro na instalação do fluentd (Pesquisar)
+    ```
+    helm install fluentd fluent/fluentd --namespace=logs -f fluentd-values.yaml
+    ```
+
+- Aula 21: Configurando coleta de logs kong
+    - Configurando o envio de logs nos manifestos
+    ```
+    kubectl port-forward svc/kibana-kibana 5601 -n logs
+    ```
+
+- Aula 22: Analisando Kong
+    - 
+
+
+
+
+
+
 
 
