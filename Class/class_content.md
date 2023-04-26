@@ -297,7 +297,10 @@
     ```
 
 - Aula 22: Analisando Kong
-    - 
+    - Nesse último vídeo ele mostrou os logs do EFK.
+    - Fiz uma cópia do repositório <https://github.com/devfullcycle/FC3-kong-automation> e substitui os meus arquivos de manifestos.
+    - Em outro momento, caso necessário, refarei esse curso para melhor entendimento.
+
 
 
 
